@@ -69,4 +69,10 @@ class CalculatorTest < Test::Unit::TestCase
         assert_equal("calculator cleared" , test.clear)
         assert_equal(2 , test.solve_equation("0 2 +"))
     end
+    
+    def test_error
+        test = Calculator.new
+        assert_equal("error: too many operators or unknown character detected" , test.solve_equation("++"))
+        assert_equal("error: too many operators or unknown character detected" , test.solve_equation("m"))        
+    end
 end

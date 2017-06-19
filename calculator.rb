@@ -21,8 +21,12 @@ class Calculator
         equation_array.each do |term|
             if term =~ /[0-9]/
                 @operand_stack.push(term.to_f)
-            else term =~ /\+|\-|\*|\// && @operand_stack.length > 1
-                operate(term)
+            elsif term =~ /\+|\-|\*|\// && @operand_stack.length > 1
+                operate(term)            
+            elsif term == 'c'
+                return clear
+            else
+                return clear("error: too many operators or unknown character detected")
             end
         end
         return @operand_stack[0] if @operand_stack.length == 1
