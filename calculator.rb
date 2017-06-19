@@ -27,4 +27,9 @@ class Calculator
         end
         return @operand_stack[0] if @operand_stack.length == 1
     end
+
+    def clear(message = "calculator cleared")
+        @operand_stack = []
+        return message
+    end
 end

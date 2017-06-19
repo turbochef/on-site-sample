@@ -62,4 +62,11 @@ class CalculatorTest < Test::Unit::TestCase
         test = Calculator.new
         assert_equal(14, test.solve_equation("5 1 2 + 4 * + 3 -"))
     end
+
+    def test_clear
+        test = Calculator.new
+        assert_equal(2 , test.solve_equation("0 2 +"))
+        assert_equal("calculator cleared" , test.clear)
+        assert_equal(2 , test.solve_equation("0 2 +"))
+    end
 end
