@@ -10,4 +10,9 @@ class Calculator
         left_operand = @operand_stack.pop()
         @operand_stack.push(left_operand.send(operator, right_operand))
     end
+
+    def parse_equation(equation)
+        parsed_input = (equation).scan(/\d+|-+[0-9]+|\S/)
+        return parsed_input
+    end
 end

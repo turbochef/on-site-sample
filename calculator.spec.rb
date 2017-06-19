@@ -22,4 +22,11 @@ class CalculatorTest < Test::Unit::TestCase
         test.operate("*")
         assert_equal(4, test.operand_stack[-1])
     end
+
+    def test_parse
+        test = Calculator.new
+        assert_equal(["1", "2", "+"], test.parse_equation("1 2 +"))
+        assert_equal(["11", "22", "+", "+"], test.parse_equation("11 22 ++"))
+        assert_equal(["-1", "-2"], test.parse_equation("-1 -2"))                           
+    end
 end
