@@ -15,4 +15,16 @@ class Calculator
         parsed_input = (equation).scan(/\d+|-+[0-9]+|\S/)
         return parsed_input
     end
+
+    def solve_equation(equation_string)
+        equation_array = parse_equation(equation_string)
+        equation_array.each do |term|
+            if term =~ /[0-9]/
+                @operand_stack.push(term.to_f)
+            else term =~ /\+|\-|\*|\// && @operand_stack.length > 1
+                operate(term)
+            end
+        end
+        return @operand_stack[0] if @operand_stack.length == 1
+    end
 end
