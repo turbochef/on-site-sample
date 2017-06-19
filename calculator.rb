@@ -18,7 +18,7 @@ class Calculator
                 return clear("error: too many operators or unknown character detected")
             end
         end
-        return @operand_stack[0] if @operand_stack.length == 1
+        return @operand_stack.length == 1 ? @operand_stack[0] : "awaiting further operators"
     end
 
     private
